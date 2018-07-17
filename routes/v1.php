@@ -25,11 +25,11 @@ $api->version('v1', [
 //    $api->get('user', 'UserController@index'); # 获取用户信息
 
     // 用户 - 用于管理员操作
-//    $api->get('auser', 'AuserController@index'); # 用户列表
-//    $api->get('auser/{id}', 'AuserController@show'); # 获取单个用户信息
-//    $api->post('auser', 'AuserController@store'); # 添加用户
-//    $api->put('auser/{id}', 'AuserController@update'); # 更改用户信息
-//    $api->delete('auser/{id}', 'AuserController@delete'); # 删除用户
+//    $api->get('user', 'UserController@index'); # 用户列表
+//    $api->get('user/{id}', 'UserController@show'); # 获取单个用户信息
+//    $api->post('user', 'UserController@store'); # 添加用户
+//    $api->put('user/{id}', 'UserController@update'); # 更改用户信息
+//    $api->delete('user/{id}', 'UserController@delete'); # 删除用户
     
     
     
@@ -43,9 +43,9 @@ $api->version('v1', [
     'middleware' => 'sign'
 ], function ($api) {
     // 注册、登录、退出
-    $api->post('user/reg', 'UserController@reg'); # 注册
-    $api->post('user/login', 'UserController@login'); # 登录
-    $api->post('user/logout', 'UserController@logout'); # 退出
+    $api->post('reg', 'User\AuthController@reg'); # 注册
+    $api->post('login', 'User\AuthController@login'); # 登录
+    $api->post('logout', 'User\AuthController@logout'); # 退出
     
 });
 

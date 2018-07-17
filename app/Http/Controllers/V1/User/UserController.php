@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers\V1;
+namespace Controllers\V1\User;
 
 use Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
 
 /**
- * 用户模块 qin
+ * 用户管理
  * 2018-04-08 14:48
  */
 class UserController extends Controller
