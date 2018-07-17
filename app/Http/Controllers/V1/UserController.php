@@ -20,8 +20,10 @@ class UserController extends Controller
     {
         $this->jwt = $jwt;
     }
+    
+    
     /**
-     * get
+     * 获取用户列表
      */
     public function index()
     {
@@ -32,23 +34,55 @@ class UserController extends Controller
     }
     
     /**
-     * post
+     * 获取用户信息
+     */
+    public function show()
+    {
+        
+    }
+    
+    /**
      * 创建一个新用户
      */
     public function store(Request $request)
     {
-        $credentials = $request->only('name', 'password');
-        if (empty($credentials)) {
-            msg(100, '请求参数无效');
-        }
         
-        if (! $token = $this->jwt->attempt($credentials)) {
-            return response()->json(['user_not_found'], 404);
-        }
-        
-        return response()->json(compact('token'));
     }
     
+    /**
+     * 更新用户信息
+     */
+    public function update()
+    {
+        
+    }
+    
+    /**
+     * 删除用户
+     */
+    public function delete()
+    {
+        
+    }
+    
+    
+    /**
+     * 注册
+     */
+    public function reg(Request $request)
+    {
+//        $credentials = $request->only('name', 'password');
+//        if (empty($credentials)) {
+//            msg(100, '请求参数无效');
+//        }
+//        
+//        if (! $token = $this->jwt->attempt($credentials)) {
+//            return response()->json(['user_not_found'], 404);
+//        }
+//        
+//        return response()->json(compact('token'));
+        pretty_print(\Auth::payload());
+    }
     
     
 }

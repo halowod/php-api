@@ -22,7 +22,18 @@ $api->version('v1', [
     'namespace' => 'Controllers\V1',
     'middleware' => ['sign', 'auth']
 ], function ($api) {
-    $api->get('user', 'UserController@index'); # 获取用户信息
+//    $api->get('user', 'UserController@index'); # 获取用户信息
+
+    // 用户 - 用于管理员操作
+//    $api->get('auser', 'AuserController@index'); # 用户列表
+//    $api->get('auser/{id}', 'AuserController@show'); # 获取单个用户信息
+//    $api->post('auser', 'AuserController@store'); # 添加用户
+//    $api->put('auser/{id}', 'AuserController@update'); # 更改用户信息
+//    $api->delete('auser/{id}', 'AuserController@delete'); # 删除用户
+    
+    
+    
+    
 });
 
 
@@ -31,7 +42,11 @@ $api->version('v1', [
     'namespace' => 'Controllers\V1',
     'middleware' => 'sign'
 ], function ($api) {
-    $api->post('user/reg', 'UserController@store'); # 新用户注册
+    // 注册、登录、退出
+    $api->post('user/reg', 'UserController@reg'); # 注册
+    $api->post('user/login', 'UserController@login'); # 登录
+    $api->post('user/logout', 'UserController@logout'); # 退出
+    
 });
 
 
