@@ -9,11 +9,6 @@ namespace Ser;
 class SignatureService
 {
     /**
-     * 说明
-     * 2. 
-     */
-    
-    /**
      * 签名算法 采用 HMAC-SHA1 算法
      * 1. 将除“s”外的所有参数过滤空值，
      * 2. 按key进行字典升序排列， 
@@ -50,11 +45,11 @@ class SignatureService
         $param = $request->input();
         
         // 防止重放攻击  timestamp 期限60秒
-        $time = time() - $param['stime'];
-        
-        if ($time > 60) {
-            msg(107, 'Invalid/Used timestamp parameter');
-        }
+//        $time = time() - $param['stime'];
+//        
+//        if ($time > 60) {
+//            msg(107, 'timestamp参数无效');
+//        }
         
         self::$param = $param;
         
