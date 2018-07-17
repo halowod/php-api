@@ -26,7 +26,17 @@ class AuthController extends Controller
      */
     public function reg(Request $request)
     {
-        echo 123;die;
+        $input = $request->only('name', 'password');
+        
+        // 验证 name、 password 的合法性
+        #--------------------------
+        
+        // 入库
+        
+        
+        // 生成 token 返回
+        
+        
     }
     
     /**

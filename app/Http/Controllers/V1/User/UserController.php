@@ -71,16 +71,16 @@ class UserController extends Controller
      */
     public function reg(Request $request)
     {
-//        $credentials = $request->only('name', 'password');
-//        if (empty($credentials)) {
-//            msg(100, '请求参数无效');
-//        }
-//        
-//        if (! $token = $this->jwt->attempt($credentials)) {
-//            return response()->json(['user_not_found'], 404);
-//        }
-//        
-//        return response()->json(compact('token'));
+        $credentials = $request->only('name', 'password');
+        if (empty($credentials)) {
+            msg(100, '请求参数无效');
+        }
+        
+        if (! $token = $this->jwt->attempt($credentials)) {
+            return response()->json(['user_not_found'], 404);
+        }
+        
+        return response()->json(compact('token'));
         pretty_print(\Auth::payload());
     }
     
