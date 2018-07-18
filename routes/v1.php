@@ -40,12 +40,14 @@ $api->version('v1', [
 // 需要验签的路由
 $api->version('v1', [
     'namespace' => 'Controllers\V1',
-    'middleware' => 'sign'
+//    'middleware' => 'sign'
+    'middleware' => ['sign', 'auth']
 ], function ($api) {
     // 注册、登录、退出
     $api->post('reg', 'User\AuthController@reg'); # 注册
     $api->post('login', 'User\AuthController@login'); # 登录
     $api->post('logout', 'User\AuthController@logout'); # 退出
+    $api->post('refresh', 'User\AuthController@refresh'); # 退出
     
 });
 

@@ -26,17 +26,21 @@ class AuthController extends Controller
      */
     public function reg(Request $request)
     {
-        $input = $request->only('name', 'password');
+        $credentials = $request->only('name', 'password');
         
         // 验证 name、 password 的合法性
         #--------------------------
         
-        // 入库
+        // 入库  注册成功
         
         
         // 生成 token 返回
+        $data = [
+            'access_token' => \Auth::attempt($credentials),
+            'token_type' => 'bearer'
+        ];
         
-        
+        msg(0, 'success', $data);
     }
     
     /**
@@ -44,7 +48,21 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        $credentials = $request->only('name', 'password');
         
+        // 验证用户 和 密码
+        #----------------------------
+        
+        if (! $token = \Auth::attempt($credentials)) {
+            msg(404, '验证失败');
+        }
+        
+        $data = [
+            'access_token' => $token,
+            'token_type' => 'bearer'
+        ];
+        
+        msg(0, 'success', $data);
     }
     
     /**
@@ -56,11 +74,13 @@ class AuthController extends Controller
     }
     
     /**
-     * 刷新
+     * 刷新token  原始的作废
      */
     public function refresh()
     {
+        $token =  \Auth::refresh();
         
+        msg(0, 'success', $token);
     }
     
     

@@ -41,7 +41,7 @@ class Authenticate
         }
         
         if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+            return response('登陆已过期', 401);
         }
 
         return $next($request);
