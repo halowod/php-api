@@ -18,6 +18,7 @@ class AuthController extends Controller
     
     public function __construct(JWTAuth $jwt)
     {
+        parent::__construct();
         $this->jwt = $jwt;
     }
     
@@ -56,7 +57,7 @@ class AuthController extends Controller
         if (! $token = \Auth::attempt($credentials)) {
             msg(404, '验证失败');
         }
-        
+        echo pretty_print(\Illuminate\Support\Facades\Auth::payload()->toArray());die;
         $data = [
             'access_token' => $token,
             'token_type' => 'bearer'
