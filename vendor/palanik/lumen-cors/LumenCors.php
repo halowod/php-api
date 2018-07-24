@@ -7,7 +7,7 @@ class LumenCors {
 
     protected $settings = array(
                 'origin' => '*',    // Wide Open!
-                'allowMethods' => 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+                'allowMethods' => 'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS',
                 'maxAge' => 600, // 【600 秒 = 10分钟】 该字段可选，用来指定本次预检请求的有效期，在此期间，不用发出另一条预检请求。
                 );
 
