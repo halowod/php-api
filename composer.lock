@@ -3853,7 +3853,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-code-coverage/774a82c0c5da4c1c7701790c262035d235ab7856.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/774a82c0c5da4c1c7701790c262035d235ab7856",
                 "reference": "774a82c0c5da4c1c7701790c262035d235ab7856",
                 "shasum": ""
             },
@@ -4102,7 +4102,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit/f7fe5127889519e421600fe0feeb113a5e210f20.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f7fe5127889519e421600fe0feeb113a5e210f20",
                 "reference": "f7fe5127889519e421600fe0feeb113a5e210f20",
                 "shasum": ""
             },
@@ -4182,7 +4182,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit-mock-objects/3f5ca97eee66a07951d018f6726017629c85c86d.zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/3f5ca97eee66a07951d018f6726017629c85c86d",
                 "reference": "3f5ca97eee66a07951d018f6726017629c85c86d",
                 "shasum": ""
             },
