@@ -38,7 +38,7 @@ class AuthController extends Controller
         // 生成 token 返回
         $data = [
             'access_token' => \Auth::attempt($credentials),
-            'token_type' => 'bearer'
+            'token_type' => 'Bearer'
         ];
         
         msg(0, 'success', $data);
@@ -49,6 +49,7 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+//        echo 123;die;
         $credentials = $request->only('name', 'password');
         
         // 验证用户 和 密码
@@ -57,10 +58,10 @@ class AuthController extends Controller
         if (! $token = \Auth::attempt($credentials)) {
             msg(404, '验证失败');
         }
-        echo pretty_print(\Illuminate\Support\Facades\Auth::payload()->toArray());die;
+        
         $data = [
             'access_token' => $token,
-            'token_type' => 'bearer'
+            'token_type' => 'Bearer'
         ];
         
         msg(0, 'success', $data);

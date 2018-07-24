@@ -39,7 +39,7 @@ if (! function_exists('msg')) {
             'message' => $message,
             'data' => $datas
         );
-        header("Content-type: application/json");
+        
         exit(json_encode($array, JSON_UNESCAPED_UNICODE));
     }
 }

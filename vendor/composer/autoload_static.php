@@ -21,6 +21,7 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+            'palanik\\lumen\\Middleware\\' => 25,
         ),
         'W' => 
         array (
@@ -133,6 +134,10 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'palanik\\lumen\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/palanik/lumen-cors',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -431,6 +436,7 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
         'App\\Http\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExampleController.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\ExampleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/ExampleMiddleware.php',
+        'App\\Http\\Middleware\\Signature' => __DIR__ . '/../..' . '/app/Http/Middleware/Signature.php',
         'App\\Jobs\\ExampleJob' => __DIR__ . '/../..' . '/app/Jobs/ExampleJob.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
@@ -478,7 +484,9 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'Controllers\\V1\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/V1/UserController.php',
+        'Controllers\\V1\\TestController' => __DIR__ . '/../..' . '/app/Http/Controllers/V1/TestController.php',
+        'Controllers\\V1\\User\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/V1/User/AuthController.php',
+        'Controllers\\V1\\User\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/V1/User/UserController.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -2660,6 +2668,7 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Ser\\SignatureService' => __DIR__ . '/../..' . '/app/Services/SignatureService.php',
         'Symfony\\Component\\ClassLoader\\ApcClassLoader' => __DIR__ . '/..' . '/symfony/class-loader/ApcClassLoader.php',
         'Symfony\\Component\\ClassLoader\\ClassCollectionLoader' => __DIR__ . '/..' . '/symfony/class-loader/ClassCollectionLoader.php',
         'Symfony\\Component\\ClassLoader\\ClassLoader' => __DIR__ . '/..' . '/symfony/class-loader/ClassLoader.php',
@@ -3206,6 +3215,7 @@ class ComposerStaticInit0b57535e967f36e8dca87a8f645cf4c6
         'Tymon\\JWTAuth\\Validators\\TokenValidator' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/TokenValidator.php',
         'Tymon\\JWTAuth\\Validators\\Validator' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/Validator.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
+        'palanik\\lumen\\Middleware\\LumenCors' => __DIR__ . '/..' . '/palanik/lumen-cors/LumenCors.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
