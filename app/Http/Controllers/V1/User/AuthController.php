@@ -49,7 +49,6 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-//        echo 123;die;
         $credentials = $request->only('name', 'password');
         
         // 验证用户 和 密码
