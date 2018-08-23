@@ -31,6 +31,8 @@ $api->version('v1', [
 //    $api->put('user/{id}', 'UserController@update'); # 更改用户信息
 //    $api->delete('user/{id}', 'UserController@delete'); # 删除用户
     
+    $api->get('logout', 'User\AuthController@logout'); # 退出
+    $api->get('refresh', 'User\AuthController@refresh'); # 刷新
     
     
     
@@ -46,8 +48,7 @@ $api->version('v1', [
     // 注册、登录、退出
     $api->post('reg', 'User\AuthController@reg'); # 注册
     $api->post('login', 'User\AuthController@login'); # 登录
-    $api->post('logout', 'User\AuthController@logout'); # 退出
-    $api->post('refresh', 'User\AuthController@refresh'); # 退出
+    
     
 });
 

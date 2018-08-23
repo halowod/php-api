@@ -6,6 +6,7 @@ use Controllers\Controller;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\JWTAuth;
+use Carbon\Carbon;
 
 /**
  * 用户
@@ -60,7 +61,10 @@ class AuthController extends Controller
         
         $data = [
             'access_token' => $token,
-            'token_type' => 'Bearer'
+            'token_type' => 'Bearer',
+            'expired_at' => Carbon::now()->addMinutes(config('jwt.ttl'))->toDateTimeString(),
+            'refresh_at' => Carbon::now()->addMinutes(config('jwt.refresh_ttl'))->toDateTimeString(),
+//            'user_id' => 
         ];
         
         msg(0, 'success', $data);
@@ -71,7 +75,8 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        
+        \Auth::logout();
+        msg(0, 'logout success');
     }
     
     /**
@@ -81,7 +86,14 @@ class AuthController extends Controller
     {
         $token =  \Auth::refresh();
         
-        msg(0, 'success', $token);
+        $data = [
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expired_at' => Carbon::now()->addMinutes(config('jwt.ttl'))->toDateTimeString(),
+            'refresh_at' => Carbon::now()->addMinutes(config('jwt.refresh_ttl'))->toDateTimeString()
+        ];
+        
+        msg(0, 'success', $data);
     }
     
     

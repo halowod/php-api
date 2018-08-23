@@ -3,8 +3,7 @@
 namespace Ser;
 
 /**
- *  签名认证处理 qin
- *  2018-04-17 10:12
+ *  签名认证处理
  */
 class SignatureService
 {
