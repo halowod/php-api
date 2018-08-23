@@ -56,7 +56,7 @@ class AuthController extends Controller
         #----------------------------
         
         if (! $token = \Auth::attempt($credentials)) {
-            msg(404, '验证失败');
+            msg(404, '登陆验证失败');
         }
         
         $data = [
