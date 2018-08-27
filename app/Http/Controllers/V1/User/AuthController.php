@@ -67,6 +67,8 @@ class AuthController extends Controller
 //            'user_id' => 
         ];
         
+//        sleep(1);
+        
         msg(0, 'success', $data);
     }
     
