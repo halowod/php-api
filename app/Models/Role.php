@@ -10,9 +10,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function getRoleList()
+//    protected $table = 'test.role';
+    protected $table = 'role';
+    protected $hidden = ['updated_at'];
+    
+    
+    
+    public static function getRoleList()
     {
-        
+        return self::get();
     }
     
     

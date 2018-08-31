@@ -33,28 +33,30 @@ class RoleController extends Controller
         // 验证数据传输类型 content-type: application/json
         
         $method = $request->input('method');
+        if (empty($method)) {
+            msg(100, '缺少method参数');
+        }
         
         // 分发路由
         switch ($method) {
             case 'access.role.list':
+                $this->show($request);
                 break;
 
             default:
+                msg(100, '请求参数无效');
                 break;
         }
-        echo $method;die;
         
-        $param = json_decode($request->getContent());
-        pretty_print($param);
-        pretty_print($param->method);
     }
     
     /**
      * 查看角色
      */
-    public function show()
+    public function show(Request $request)
     {
-        
+        $data = Role::getRoleList();
+        msg(0, 'success', $data);
     }
     
     /**
