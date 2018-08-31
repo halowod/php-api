@@ -3,10 +3,11 @@
 namespace Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Routing\ResponseFactory;
 
 
 /**
- * 
+ * parent class
  */
 class Controller extends BaseController
 {
@@ -29,4 +30,6 @@ class Controller extends BaseController
             header("{$key}: {$value}");
         }
     }
+    
+    
 }
