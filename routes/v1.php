@@ -31,7 +31,7 @@ $api->version('v1', [
     // 后台 -  权限管理， 给用户分配权限、 添加新的权限
     $api->post('role', 'Access\RoleController@store'); # 角色
     $api->post('user', 'Access\UserController@store'); # 后台用户管理
-    $api->post('access', 'Access\AccessController@store'); # 权限
+    $api->post('permit', 'Access\PermitController@store'); # 权限
     
     // 前台权限管理
     

@@ -34,7 +34,6 @@ class UserController extends Controller
             case 'access.user.list':
                 $this->show($request);
                 break;
-            
             case 'access.user.add':
                 $this->add($request);
                 break;
@@ -83,7 +82,8 @@ class UserController extends Controller
         $validator = \Validator::make($request->all(), [
             'user_name' => 'required',
             'pass' => 'required',
-            'checkPass' => 'required'
+            'checkPass' => 'required',
+            'role_id' => 'required'
         ], $message);
         
         if ($validator->fails()) {
@@ -115,8 +115,8 @@ class UserController extends Controller
         $input = $request->input();
         #----------------------------
         
-        
-        $data = User::getUserInfo($input);
+        $user = new User;
+        $data = $user->getUserInfo($input);
         
         if (! $data) {
             msg(806, '未找到你的数据');
@@ -136,7 +136,8 @@ class UserController extends Controller
         ];
         $validator = \Validator::make($request->all(), [
             'user_name' => 'required',
-            'checkPass' => 'required'
+            'checkPass' => 'required',
+            'role_id' => 'required'
         ], $message);
         
         if ($validator->fails()) {

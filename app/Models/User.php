@@ -20,6 +20,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+    protected $appends = [
+        'role_id', 'role_name'
+    ];
     
     public function getJWTIdentifier()
     {
@@ -69,27 +72,75 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         }
 
         // 判断是否有重复数据
-        if (User::where('name', $user->name)->first()) {
+        if (self::where('name', $user->name)->first()) {
             msg(804, '该用户组已存在');
         }
+                
+        $res = $user->save();
+        if (! $res) {
+            msg(805, '数据操作失败');
+        }
         
-        return $user->save();
+        $user_id = $user->id;
+        
+        
+        // 关联 role_user 表
+        $res1 = RoleUser::addRoleUser($arr['role_id'], $user_id);
+        
+        if (! $res1) {
+            msg(805, '数据操作失败');
+        }
+        
+        msg(0, 'success');
     }
     
     /**
      * 获取 角色信息
      */
-    public static function getUserInfo($arr)
+    public function getUserInfo($arr)
     {
         if (empty($arr['user_id'])) {
             msg(100, '缺少参数user_id');
         }
         
-        return User::where('id', $arr['user_id'])->first();
+        return self::where('id', $arr['user_id'])->first();
+        
+        
+    }
+    
+    public function getRoleUser()
+    {
+        return $this->hasOne('Mo\RoleUser', 'user_id', 'id')->first();
+    }
+    
+    public function getRoleIdAttribute()
+    {
+        try {
+            $role_id = $this->getRoleUser()->role_id;
+        } catch (\Exception $exc) {
+//            msg(1, $exc->getMessage());
+            $role_id = 0;
+        }
+         
+        return $role_id ?? 0;
+    }
+    
+    
+    public function getRoleNameAttribute()
+    {
+        try {
+            $role_name = Role::where('id', $this->getRoleUser()->role_id)->value('role_name');
+            
+        } catch (\Exception $exc) {
+//            msg(1, $exc->getMessage());
+            $role_name = '';
+        }
+         
+        return $role_name ?? '';
     }
     
     /**
-     * 更新 角色信息
+     * 更新 用户信息
      */
     public static function updateUser($arr)
     {
@@ -111,7 +162,21 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             msg(804, '该用户组已存在');
         }
         
-        return $user->save();
+        $res = $user->save();
+        if (! $res) {
+            msg(805, '数据操作失败');
+        }
+        
+        $user_id = $user->id;
+        
+        // 关联 role_user 表
+        $res1 = RoleUser::addRoleUser($arr['role_id'], $user_id);
+        
+        if (! $res1) {
+            msg(805, '数据操作失败');
+        }
+        
+        msg(0, 'success');
     }
     
     /**
@@ -124,7 +189,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             msg(100, '参数异常');
         }
         
-        return User::destroy(explode(',', $ids));
+        return self::destroy(explode(',', $ids));
     }
     
     
